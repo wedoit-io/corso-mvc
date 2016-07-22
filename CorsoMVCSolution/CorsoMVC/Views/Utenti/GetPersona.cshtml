@@ -1,0 +1,28 @@
+﻿@model CorsoMVC.Models.Persona
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+    <body>
+        <table>
+            <tr>
+                <td>Nome</td>
+                <td>Cognome</td>
+                <td>Età</td>
+            </tr>
+            <tr>
+                <td>@Model.Nome</td>
+                <td>@Model.Cognome</td>
+                <td>@Model.Eta</td>
+            </tr>
+        </table>
+    </body>
+</html>
