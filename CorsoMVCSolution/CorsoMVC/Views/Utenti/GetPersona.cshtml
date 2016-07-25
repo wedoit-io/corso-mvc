@@ -1,4 +1,4 @@
-﻿@model CorsoMVC.Models.Persona
+﻿@model CorsoMVC.Models.Persona[]
 
 @{
     Layout = null;
@@ -18,11 +18,14 @@
                 <td>Cognome</td>
                 <td>Età</td>
             </tr>
-            <tr>
-                <td>@Model.Nome</td>
-                <td>@Model.Cognome</td>
-                <td>@Model.Eta</td>
-            </tr>
+            @foreach (var persona in Model)
+            {
+                <tr>
+                    <td>@persona.Nome</td>
+                    <td>@persona.Cognome</td>
+                    <td>@persona.Eta</td>
+                </tr>
+            }
         </table>
     </body>
 </html>

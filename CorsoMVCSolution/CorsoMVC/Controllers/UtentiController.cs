@@ -49,7 +49,12 @@
             mario.Cognome = "Rossi";
             mario.Eta = 31;
 
-            return this.View(mario);
+            var stefano = new Persona();
+            stefano.Nome = "Stefano";
+            stefano.Cognome = "Teodorani";
+            stefano.Eta = 54;
+
+            return this.View(new[] { mario, stefano });
         }
     }
 }
