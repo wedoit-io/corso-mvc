@@ -1,5 +1,6 @@
 ﻿namespace CorsoMVC.Controllers
 {
+    using System;
     using System.Net;
     using System.Web.Mvc;
     using CorsoMVC.Models;
@@ -55,6 +56,29 @@
             stefano.Eta = 54;
 
             return this.View(new[] { mario, stefano });
+        }
+
+        public ActionResult PrimoForm()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        public ActionResult InviaDatiPrimoForm(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpPost]
+        public ActionResult InviaDatiPrimoForm2(FormCollection formData)
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpPost]
+        public ActionResult InviaDatiPrimoForm3(Persona persona)
+        {
+            throw new NotImplementedException();
         }
     }
 }

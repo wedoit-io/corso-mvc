@@ -236,6 +236,7 @@
     <Content Include="Views\Utenti\PrimoView.cshtml" />
     <Content Include="Views\Utenti\NomeVariabile.cshtml" />
     <Content Include="Views\Utenti\GetPersona.cshtml" />
+    <Content Include="Views\Utenti\PrimoForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
