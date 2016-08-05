@@ -1,0 +1,11 @@
+﻿@model IEnumerable<CorsoMVC.Models.Articolo>
+
+@Html.ActionLink("Clicca qui per creare un nuovo articolo", "Create")
+
+@foreach (var articolo in Model)
+{
+    <div class="articolo">
+        <h1>@articolo.Titolo</h1>
+        <p>@articolo.Testo</p>
+    </div>
+}

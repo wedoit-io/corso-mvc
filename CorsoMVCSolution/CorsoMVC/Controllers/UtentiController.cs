@@ -1,17 +1,11 @@
 ﻿namespace CorsoMVC.Controllers
 {
     using System;
-    using System.Net;
     using System.Web.Mvc;
     using CorsoMVC.Models;
 
     public class UtentiController : Controller
     {
-        public ActionResult Index()
-        {
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
-        }
-
         public ActionResult SempliceTesto()
         {
             var result = new ContentResult();
@@ -76,8 +70,14 @@
         }
 
         [HttpPost]
-        public ActionResult InviaDatiPrimoForm3(Persona persona)
+        public ActionResult InviaDatiPrimoForm3([Bind(Include = "Nome,Cognome,Eta")] Persona persona)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View("PrimoForm", persona);
+            }
+
+            // fai qualcosa
             throw new NotImplementedException();
         }
     }

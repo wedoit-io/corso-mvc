@@ -1,0 +1,20 @@
+﻿@model CorsoMVC.Models.Articolo
+
+@using (Html.BeginForm("Create"))
+{
+    @Html.ValidationSummary(true)
+
+    <div>
+        @Html.LabelFor(model => model.Titolo)
+        @Html.EditorFor(model => model.Titolo)
+        @Html.ValidationMessageFor(model => model.Titolo)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Testo)
+        @Html.EditorFor(model => model.Testo)
+        @Html.ValidationMessageFor(model => model.Testo)
+    </div>
+
+    <input type="submit" name="Crea" />
+}

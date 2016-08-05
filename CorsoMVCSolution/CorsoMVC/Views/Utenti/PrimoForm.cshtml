@@ -1,30 +1,30 @@
 ﻿@model CorsoMVC.Models.Persona
 
-<form action="/Utenti/InviaDatiPrimoForm" method="POST">
+@*<form action="/Utenti/InviaDatiPrimoForm" method="POST">
     <input name="username" type="text" />
 
     <input name="password" type="password" />
 
     <input type="submit" value="Invia" />
-</form>
+</form>*@
 
-<form action="/Utenti/InviaDatiPrimoForm2" method="POST">
+@*<form action="/Utenti/InviaDatiPrimoForm2" method="POST">
     <input name="username" type="text" />
 
     <input name="password" type="password" />
 
     <input type="submit" value="Invia" />
-</form>
+</form>*@
 
-<form action="/Utenti/InviaDatiPrimoForm3" method="POST">
+@*<form action="/Utenti/InviaDatiPrimoForm3" method="POST">
     <input name="Eta" type="text" />
     <input name="Cognome" type="text" />
     <input name="Nome" type="text" />
 
     <input type="submit" value="Fai che ne so io" />
-</form>
+</form>*@
 
-<form action="/Utenti/InviaDatiPrimoForm3" method="POST">
+@*<form action="/Utenti/InviaDatiPrimoForm3" method="POST">
 
     @Html.TextBoxFor(m => m.Eta)
     @Html.TextBoxFor(m => m.Cognome)
@@ -32,14 +32,31 @@
 
     <input type="submit" value="Invia" />
 
-</form>
+</form>*@
 
 @using (Html.BeginForm("InviaDatiPrimoForm3", "Utenti"))
 {
+    @Html.ValidationSummary()
 
-    @Html.TextBoxFor(m => m.Eta)
-    @Html.TextBoxFor(m => m.Cognome)
-    @Html.TextBoxFor(m => m.Nome)
+    <div>
+        @Html.LabelFor(m => m.Nome)
+        @Html.TextBoxFor(m => m.Nome)
+        @Html.ValidationMessageFor(m => m.Nome)
+    </div>
 
-    <input type="submit" value="Invia" />
+    <div>
+        @Html.LabelFor(m => m.Cognome)
+        @Html.TextBoxFor(m => m.Cognome)
+        @Html.ValidationMessageFor(m => m.Cognome)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Eta)
+        @Html.TextBoxFor(m => m.Eta)
+        @Html.ValidationMessageFor(m => m.Eta)
+    </div>
+
+    <div>
+        <input type="submit" value="Invia" />
+    </div>
 }
