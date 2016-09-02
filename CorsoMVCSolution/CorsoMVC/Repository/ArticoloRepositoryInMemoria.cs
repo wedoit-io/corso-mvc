@@ -1,32 +1,55 @@
 namespace CorsoMVC.Repository
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Web;
     using CorsoMVC.Models;
 
     public class ArticoloRepositoryInMemoria : IArticoloRepository
     {
-        public IEnumerable<Articolo> GetAll()
+        public IEnumerable<Articolo> GetAll(int categoria)
         {
-            var lista = HttpContext.Current.Application["Articoli"];
-            if (lista == null)
+            var categorie = HttpContext.Current.Application["Categorie"] as List<Categoria>;
+            if (categorie == null)
             {
-                HttpContext.Current.Application["Articoli"] = new List<Articolo>();
+                throw new Exception("La lista delle categorie è vuota.");
             }
 
-            return (IEnumerable<Articolo>)HttpContext.Current.Application["Articoli"];
+            var categoriaPadre = categorie.SingleOrDefault(c => c.Id == categoria);
+            if (categoriaPadre == null)
+            {
+                throw new Exception("La categoria richiesta non esiste.");
+            }
+
+            if (categoriaPadre.Articoli == null)
+            {
+                categoriaPadre.Articoli = new List<Articolo>();
+            }
+
+            return categoriaPadre.Articoli;
         }
 
-        public void Create(Articolo articolo)
+        public void Create(Articolo articolo, int categoria)
         {
-            var lista = HttpContext.Current.Application["Articoli"];
-            if (lista == null)
+            var categorie = HttpContext.Current.Application["Categorie"] as List<Categoria>;
+            if (categorie == null)
             {
-                HttpContext.Current.Application["Articoli"] = new List<Articolo>();
+                throw new Exception("La lista delle categorie è vuota.");
             }
 
-            var articoli = (List<Articolo>)HttpContext.Current.Application["Articoli"];
-            articoli.Add(articolo);
+            var categoriaPadre = categorie.SingleOrDefault(c => c.Id == categoria);
+            if (categoriaPadre == null)
+            {
+                throw new Exception("La categoria richiesta non esiste.");
+            }
+
+            if (categoriaPadre.Articoli == null)
+            {
+                categoriaPadre.Articoli = new List<Articolo>();
+            }
+
+            categoriaPadre.Articoli.Add(articolo);
         }
     }
 }

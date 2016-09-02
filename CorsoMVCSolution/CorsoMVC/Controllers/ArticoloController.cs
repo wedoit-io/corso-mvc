@@ -8,9 +8,9 @@
     {
         private readonly IArticoloRepository articoloRepository = new ArticoloRepositoryInMemoria();
 
-        public ActionResult Index()
+        public ActionResult Index(int categoria)
         {
-            var all = this.articoloRepository.GetAll();
+            var all = this.articoloRepository.GetAll(categoria);
 
             return this.View(all);
         }
@@ -21,14 +21,14 @@
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "Titolo,Testo")] Articolo articolo)
+        public ActionResult Create([Bind(Include = "Titolo,Testo")] Articolo articolo, int categoria)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.View("Create", articolo);
             }
 
-            this.articoloRepository.Create(articolo);
+            this.articoloRepository.Create(articolo, categoria);
 
             return this.RedirectToAction("Index");
         }

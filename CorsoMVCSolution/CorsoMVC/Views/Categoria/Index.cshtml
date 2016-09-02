@@ -1,0 +1,10 @@
+﻿@model IEnumerable<CorsoMVC.Models.Categoria>
+
+@Html.ActionLink("Clicca qui per creare una nuova categoria", "Create")
+
+@foreach (var categoria in Model)
+{
+    <div class="categoria">
+        @Html.ActionLink(categoria.Titolo, "Index", "Articolo", new { categoria = categoria.Id }, null)
+    </div>
+}

@@ -5,8 +5,8 @@ namespace CorsoMVC.Repository
 
     public interface IArticoloRepository
     {
-        IEnumerable<Articolo> GetAll();
+        IEnumerable<Articolo> GetAll(int categoria);
 
-        void Create(Articolo articolo);
+        void Create(Articolo articolo, int categoria);
     }
 }

@@ -1,0 +1,16 @@
+﻿@model CorsoMVC.Models.Categoria
+           
+<h1>Crea una nuova categoria</h1>
+
+@using (Html.BeginForm("Create"))
+{
+    @Html.ValidationSummary(true)
+
+    <div>
+        @Html.LabelFor(model => model.Titolo)
+        @Html.EditorFor(model => model.Titolo)
+        @Html.ValidationMessageFor(model => model.Titolo)
+    </div>
+
+    <input type="submit" name="Crea" />
+}
